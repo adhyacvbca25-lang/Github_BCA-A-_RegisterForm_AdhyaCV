@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Course Registration Portal</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family: 'Poppins', sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background: linear-gradient(-45deg,#667eea,#764ba2,#6dd5ed,#2193b0);
+background-size:400% 400%;
+animation: gradientBG 10s ease infinite;
+}
+
+@keyframes gradientBG{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+.container{
+width:420px;
+padding:35px;
+border-radius:15px;
+background:rgba(255,255,255,0.2);
+backdrop-filter: blur(12px);
+box-shadow:0 8px 32px rgba(0,0,0,0.3);
+color:white;
+}
+
+h1{
+text-align:center;
+margin-bottom:20px;
+}
+
+label{
+margin-top:10px;
+display:block;
+font-weight:500;
+}
+
+input,select{
+width:100%;
+padding:10px;
+margin-top:5px;
+border:none;
+border-radius:8px;
+outline:none;
+}
+
+button{
+margin-top:18px;
+width:100%;
+padding:12px;
+border:none;
+border-radius:8px;
+background:#00e5ff;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+background:#00bcd4;
+transform:scale(1.05);
+}
+
+h3{
+margin-top:20px;
+}
+
+ul{
+margin-top:10px;
+list-style:none;
+}
+
+li{
+background:rgba(255,255,255,0.3);
+padding:10px;
+margin-bottom:8px;
+border-radius:6px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Course Registration</h1>
+
+<form id="form">
+
+<label>Student Name</label>
+<input type="text" id="name" required>
+
+<label>Email</label>
+<input type="email" id="email" required>
+
+<label>Select Course</label>
+<select id="course">
+<option>Web Development</option>
+<option>Python Programming</option>
+<option>Data Structures</option>
+<option>Artificial Intelligence</option>
+<option>Cyber Security</option>
+<option>Cloud Computing</option>
+</select>
+
+<button type="submit">Register Course</button>
+
+</form>
+
+<h3>Registered Students</h3>
+<ul id="list"></ul>
+
+</div>
+
+<script>
+
+document.getElementById("form").addEventListener("submit",function(e){
+
+e.preventDefault();
+
+let name=document.getElementById("name").value;
+let email=document.getElementById("email").value;
+let course=document.getElementById("course").value;
+
+let li=document.createElement("li");
+
+li.innerHTML="<b>"+name+"</b> registered for <b>"+course+"</b>";
+
+document.getElementById("list").appendChild(li);
+
+document.getElementById("form").reset();
+
+});
+
+</script>
+
+</body>
+</html>
